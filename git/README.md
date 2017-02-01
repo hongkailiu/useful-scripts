@@ -11,3 +11,7 @@ $ git blame git/README.md
 $ git branch -a -vv --contains 791b2fc8664f4f448fe7b3a375870218413e0fed
 * master                17f3dd0 [origin/master] Create README.md
 ```
+* shortlog
+```sh
+$ git shortlog -s -n --all
+```
