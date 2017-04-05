@@ -1,6 +1,7 @@
 plugins {
     id "base"
     id 'distribution'
+    id 'maven'
 }
 
 version = '0.0.1-SNAPSHOT'
@@ -20,6 +21,7 @@ task appZip(type:Zip) {
 }
 
 build.dependsOn(appZip)
+install.dependsOn(build)
 
 artifacts {
     archives appZip
