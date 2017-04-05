@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+readonly SHA="$(git rev-parse HEAD)"
+
+check(){
+  git diff "${SHA}" --name-only | while read -r file; do
+    echo "${file}"
+    if [[ -f "${file}" ]]; then
+      local first_line="$(head -1 "${file}")"
+      if [[ ("${first_line}" == *"#!/bin/bash"*) || ("${first_line}" == *"#!/bin/sh"*) ]]; then
+        shellcheck "${file}"
+      fi
+    fi
+  done
+}
+
+check
