@@ -1,7 +1,6 @@
 plugins {
     id "base"
     id 'distribution'
-    id 'maven-publish'
 }
 
 version = '0.0.1-SNAPSHOT'
@@ -22,10 +21,6 @@ task appZip(type:Zip) {
 
 build.dependsOn(appZip)
 
-publishing {
-    publications {
-        mavenApp(MavenPublication) {
-            artifact appZip
-        }
-    }
+artifacts {
+    archives appZip
 }
