@@ -1,0 +1,31 @@
+plugins {
+    id "base"
+    id 'distribution'
+    id 'maven-publish'
+}
+
+version = '0.0.1-SNAPSHOT'
+group = 'tk.hongkailiu.test'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2.1'
+    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+}
+
+task appZip(type:Zip) {
+    from('linux') {
+        include 'shellcheck-last-git-commit'
+        into 'libs'
+    }
+    into "${project.name}"
+}
+
+build.dependsOn(appZip)
+
+publishing {
+    publications {
+        mavenApp(MavenPublication) {
+            artifact appZip
+        }
+    }
+}

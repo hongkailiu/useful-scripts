@@ -1,3 +1,5 @@
 java/jstack.result*
 .idea/
 *.iml
+.gradle/
+build/
