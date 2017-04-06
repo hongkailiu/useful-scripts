@@ -7,24 +7,26 @@ plugins {
 group = 'tk.hongkailiu.test'
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.13'
+    gradleVersion = '3.2.1'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
-task appZip(type:Zip) {
-    from('linux') {
-        include 'shellcheck-last-git-commit'
-        into 'libs'
+distributions {
+    main {
+        baseName "${project.name}"
+        contents {
+            from ("linux") {
+                include 'shellcheck-last-git-commit'
+                into 'lib'
+            }
+        }
     }
-    into "${project.name}"
 }
-
-build.dependsOn(appZip)
 
 publishing {
     publications {
         maven(MavenPublication) {
-            artifact appZip
+            artifact distZip
         }
     }
 }
