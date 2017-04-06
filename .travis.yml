@@ -1,5 +1,6 @@
 ---
 sudo: required
+dist: trusty
 
 language: java
 
@@ -8,8 +9,11 @@ jdk:
 
 before_install:
   # https://github.com/travis-ci/travis-ci/issues/4105
+  # https://github.com/travis-ci/apt-package-whitelist/issues/376
   #- sudo apt-get install ShellCheck
-  - sudo apt-get install vim-gtk
+  - echo "deb http://archive.ubuntu.com/ubuntu/ wily universe" | sudo tee -a /etc/apt/sources.list
+  - sudo apt-get update -q
+  - sudo apt-get install shellcheck -y
 
 script:
   - ./gradlew checkShell build

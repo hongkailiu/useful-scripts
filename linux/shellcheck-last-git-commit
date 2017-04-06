@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# TODO usage doc
+# TODO usage document
 
 set -e
 
