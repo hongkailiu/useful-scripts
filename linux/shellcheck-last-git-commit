@@ -2,10 +2,11 @@
 
 set -e
 
-readonly SHA="$(git rev-parse HEAD)"
+readonly SHA1="$(git rev-parse HEAD)"
+readonly SHA2="$(git rev-parse HEAD~1)"
 
 check(){
-  git diff "${SHA}" --name-only | while read -r file; do
+  git diff "${SHA1}" "${SHA2}" --name-only | while read -r file; do
     echo "${file}"
     if [[ -f "${file}" ]]; then
       local first_line
