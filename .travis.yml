@@ -1,5 +1,5 @@
 ---
-#sudo: required
+sudo: required
 
 language: java
 
@@ -8,7 +8,8 @@ jdk:
 
 before_install:
   # https://github.com/travis-ci/travis-ci/issues/4105
-  #- sudo apt-get install shellcheck
+  #- sudo apt-get install ShellCheck
+  - sudo apt-get install vim-gtk
 
 script:
   - ./gradlew checkShell build
