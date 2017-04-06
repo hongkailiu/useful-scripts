@@ -23,6 +23,8 @@ distributions {
     }
 }
 
+installDist.dependsOn(build)
+
 publishing {
     publications {
         maven(MavenPublication) {
