@@ -4,9 +4,10 @@ sudo: required
 before_install:
   # https://github.com/travis-ci/travis-ci/issues/4105
   #- sudo apt-get install shellcheck
+  - sudo apt-get install c2hs cpphs hscolour hugs
   - sudo apt-get install cabal-install
   - cabal update
-  - cabal install shellcheck
+  - cabal install ShellCheck
   - export PATH=$PATH:$HOME/.cabal/bin
 
 language: java
