@@ -4,11 +4,41 @@ plugins {
     id 'maven-publish'
 }
 
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
 group = 'tk.hongkailiu.test'
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.13'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+}
+
+configurations {
+    zipFiles
+}
+
+ext.deps = [
+        scriptsVersion:'0.1.1'
+]
+
+dependencies {
+    zipFiles "com.github.hongkailiu:useful-scripts:${deps.scriptsVersion}@zip"
+}
+
+task getZipFiles(type: Copy) {
+    from configurations.zipFiles
+    into "$buildDir/zipFiles"
+    configurations.zipFiles.asFileTree.each {
+        from( zipTree(it) )
+    }
+}
+
+task checkShell(type:Exec) {
+    dependsOn getZipFiles
+    workingDir './'
+    commandLine "$buildDir/zipFiles/useful-scripts-${deps.scriptsVersion}/lib/shellcheck-last-git-commit"
 }
 
 distributions {

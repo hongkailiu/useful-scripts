@@ -1,7 +1,13 @@
+---
+sudo: required
+
+before_install:
+  - sudo apt-get install shellcheck
+
 language: java
 
 jdk:
   - oraclejdk8
 
 script:
-  - ./gradlew build
+  - ./gradlew checkShell build
