@@ -12,3 +12,10 @@
   ```sh
   $ sudo update-rc.d <service_name> disable
   ```
+# [check desktop session](https://superuser.com/questions/96151/how-do-i-check-whether-i-am-using-kde-or-gnome)
+- RHEL
+
+  ```sh
+  $ echo $DESKTOP_SESSION
+  gnome-classic
+  ```
