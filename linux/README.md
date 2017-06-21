@@ -19,3 +19,9 @@
   $ echo $DESKTOP_SESSION
   gnome-classic
   ```
+
+# [which shell](https://unix.stackexchange.com/questions/76438/how-to-know-which-is-the-default-script-shell-in-centos)
+
+  ```sh
+  $ ls -l "$(which sh)"
+  ```
