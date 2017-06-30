@@ -1,4 +1,16 @@
 
+# [which Linux](https://www.cyberciti.biz/faq/find-linux-distribution-name-version-number/)
+
+  ```sh
+  $ cat /etc/*-release
+  ```
+
+# [which shell](https://unix.stackexchange.com/questions/76438/how-to-know-which-is-the-default-script-shell-in-centos)
+
+  ```sh
+  $ ls -l "$(which sh)"
+  ```
+
 # list service status
 - ubuntu
 
@@ -18,10 +30,4 @@
   ```sh
   $ echo $DESKTOP_SESSION
   gnome-classic
-  ```
-
-# [which shell](https://unix.stackexchange.com/questions/76438/how-to-know-which-is-the-default-script-shell-in-centos)
-
-  ```sh
-  $ ls -l "$(which sh)"
   ```
