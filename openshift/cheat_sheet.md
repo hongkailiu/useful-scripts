@@ -9,7 +9,7 @@ $ for i in {110..119}; do oc delete project "proj$i"; done
 ## delete build
 
 ```
-$ oc get builds --all-namespaces | grep Fail | while read i; do awk '{system("oc delete build -n " $1 "  " $2)}'; done
+$ oc get builds --all-namespaces | grep Fail | grep -E "proj[0-9]+" | while read i; do awk '{system("oc delete build -n " $1 "  " $2)}'; done
 ```
 
 ## create the project
