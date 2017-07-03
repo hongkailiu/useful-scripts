@@ -31,3 +31,30 @@
   $ echo $DESKTOP_SESSION
   gnome-classic
   ```
+# [run in backgroup](https://www.computerhope.com/unix/unohup.htm)
+
+* run
+
+  ```sh
+  $ nohup ./my_script > /tmp/log.txt &
+  ```
+
+* list
+
+  ```sh
+  $ jobs -l
+  ```
+
+* [kill](https://stackoverflow.com/questions/1624691/linux-kill-background-task): number is the index in the <code>jobs</code> command
+
+  ```sh
+  $ kill %1
+  ```
+
+# [check desktop session](https://superuser.com/questions/96151/how-do-i-check-whether-i-am-using-kde-or-gnome)
+- RHEL
+
+  ```sh
+  $ echo $DESKTOP_SESSION
+  gnome-classic
+  ```
