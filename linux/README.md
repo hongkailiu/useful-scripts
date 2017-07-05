@@ -17,6 +17,11 @@
   ```sh
   $ service --status-all
   ```
+- centos
+
+  ```sh
+  $ systemctl list-unit-files
+  ```
 
 # disable a service: stop auto-starting at startup of server
 - ubuntu
