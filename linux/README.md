@@ -11,6 +11,13 @@
   $ ls -l "$(which sh)"
   ```
 
+# [list 10 big folders](https://www.tecmint.com/find-top-large-directories-and-files-sizes-in-linux/)
+
+  ```sh
+  $ du -a /home | sort -n -r | head -n 5
+  ```
+
+
 # list service status
 - ubuntu
 
